@@ -14,6 +14,7 @@ router.post("/:userId/documents", verifyToken, async(req, res)=>{
     }
 })
 
+
 router.get("/:userId/documents", verifyToken, async(req, res)=>{
     try {
         const data = await knex("UserDocument").where({userId:req.params.userId})
@@ -24,6 +25,7 @@ router.get("/:userId/documents", verifyToken, async(req, res)=>{
     }
 })
 
+
 router.put("/:userId", verifyToken, async(req, res)=>{
     try {
         await knex("Users").update(req.body).where({userId:req.params.userId})
@@ -32,6 +34,7 @@ router.put("/:userId", verifyToken, async(req, res)=>{
         res.send(error.message)
     }
 })
+
 
 router.get("/:userId", verifyToken, async(req, res)=>{
     try {
